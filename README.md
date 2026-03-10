@@ -1,12 +1,22 @@
 # ParaBank Quality Engineering Suite
 
-A comprehensive software testing repository focused on functional and API testing of the ParaBank demo application. This project serves as a portfolio piece demonstrating end-to-end quality assurance processes, from manual test case design and defect tracking to building a scalable automated UI/API testing framework.
+> 🚧 **Project Status: Active Development (Work in Progress)**
+
+A comprehensive software testing repository focused on building a scalable Quality Assurance framework for the ParaBank demo application. This project serves as a portfolio piece demonstrating end-to-end QA processes, starting from manual test design and defect tracking, and extending into API and automated UI testing.
+
+## 🗺️ Project Roadmap & Phases
+
+- [x] **Phase 1.1: Core Manual Testing** (Fund Transfer & Authentication modules completed. Detailed test cases and bug reports documented).
+- [ ] **Phase 1.2: Extended Manual Testing** (Bill Pay, Loan Requests, and User Profile updates - *In Progress*).
+- [ ] **Phase 2: API Testing** (Validating backend endpoints using Postman / REST Assured - *Planned*).
+- [ ] **Phase 3: UI Test Automation** (Building a robust automation framework using Java, Selenium WebDriver, TestNG, and Maven - *Planned*).
 
 ## 🛠️ Tech Stack & Tools
 
 - **Methodologies:** Manual Testing (Black-Box), Boundary Value Analysis (BVA), Error Guessing.
 - **Documentation:** Markdown (Bug Reports), Google Sheets (Test Cases & Execution).
-- **Automation (Upcoming):** Java 21, Selenium WebDriver, TestNG, Maven.
+- **Automation (Upcoming):** Java 21, Selenium WebDriver, TestNG.
+- **API Testing (Upcoming):** Postman.
 - **Version Control:** Git & GitHub.
 
 ## 📁 Project Structure
@@ -14,15 +24,16 @@ A comprehensive software testing repository focused on functional and API testin
 ```text
 ParaBank-Quality-Engineering-Suite/
 ├── manual-testing/
-│   ├── test-scenarios/       # Test cases mapped to specific modules (Fund Transfer, Auth, etc.)
+│   ├── test-scenarios/       # Test cases mapped to specific modules
 │   └── bug-reports/          # Detailed defect reports with reproducible steps and evidence
+├── api-testing/              # Future scope: Postman collections and API test results
 └── automation-testing/       # Future scope: TestNG/Selenium test scripts
 
 ```
 
-## 📊 Test Coverage
+## 📊 Current Test Coverage
 
-Currently, the test suite covers the following core modules:
+Currently, the test suite covers the following core modules manually:
 
 1. **Fund Transfer Module:**
 * Verified valid and invalid fund transfers.
@@ -38,7 +49,7 @@ Currently, the test suite covers the following core modules:
 
 ## 🐛 Defect Tracking
 
-All identified defects are logged in the `bug-reports` directory following standard QA industry formats. Each report includes environment details, severity/priority, steps to reproduce, expected vs. actual results, and visual evidence.
+All identified defects are logged in the `bug-reports` directory following standard QA industry formats.
 
 **Notable Backend Vulnerabilities Found:**
 
