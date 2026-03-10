@@ -1,51 +1,63 @@
-# Java Playground
+# ParaBank Quality Engineering Suite
 
-A repository dedicated to refining Java programming skills with a focus on clean code principles, software architecture, logic optimization, and test automation strategies.
+> 🚧 **Project Status: Active Development (Work in Progress)**
 
-## Project Overview
+A comprehensive software testing repository focused on building a scalable Quality Assurance framework for the ParaBank demo application. This project serves as a portfolio piece demonstrating end-to-end QA processes, starting from manual test design and defect tracking, and extending into API and automated UI testing.
 
-### 1. OOP Calculator Engine
-**Architecture:** Strategy Design Pattern
-**Status:** Completed
+## 🗺️ Project Roadmap & Phases
 
-A modular, extensible calculator application designed to demonstrate enterprise-level software architecture. This project refactors traditional procedural logic into a decoupled object-oriented model.
+- [x] **Phase 1.1: Core Manual Testing** (Fund Transfer & Authentication modules completed. Detailed test cases and bug reports documented).
+- [ ] **Phase 1.2: Extended Manual Testing** (Bill Pay, Loan Requests, and User Profile updates - *In Progress*).
+- [ ] **Phase 2: API Testing** (Validating backend endpoints using Postman / REST Assured - *Planned*).
+- [ ] **Phase 3: UI Test Automation** (Building a robust automation framework using Java, Selenium WebDriver, TestNG, and Maven - *Planned*).
 
-**Key Technical Implementations:**
-* **Strategy Design Pattern:** Utilizes the `MathOperation` interface to decouple operation logic from the execution engine, allowing for runtime algorithm selection.
-* **SOLID Principles:** Strictly adheres to the **Open/Closed Principle**; new operations can be integrated without modifying the core `CalculatorEngine` class.
-* **Robust Unit Testing:** Features a comprehensive test suite using **JUnit 5**, implementing the **AAA (Arrange, Act, Assert)** pattern and covering edge cases such as division by zero.
-* **Error Handling:** Implements precise exception handling to ensure application stability during invalid inputs.
+## 🛠️ Tech Stack & Tools
 
-### 2. FizzBuzz Refactored
-**Focus:** Logic Optimization
-**Status:** Completed
+- **Methodologies:** Manual Testing (Black-Box), Boundary Value Analysis (BVA), Error Guessing.
+- **Documentation:** Markdown (Bug Reports), Google Sheets (Test Cases & Execution).
+- **Automation (Upcoming):** Java 21, Selenium WebDriver, TestNG.
+- **API Testing (Upcoming):** Postman.
+- **Version Control:** Git & GitHub.
 
-An optimized implementation of the classic FizzBuzz algorithmic problem. This solution addresses common performance and readability pitfalls found in naive implementations.
+## 📁 Project Structure
 
-**Key Technical Implementations:**
-* **Complexity Reduction:** Replaces nested conditional structures (`if-else` hell) with streamlined string concatenation logic.
-* **Maintainability:** structured to allow easy modification of conditions without rewriting the core loop.
-* **Code Standards:** Follows strict Java naming conventions and clean code practices.
+```text
+ParaBank-Quality-Engineering-Suite/
+├── manual-testing/
+│   ├── test-scenarios/       # Test cases mapped to specific modules
+│   └── bug-reports/          # Detailed defect reports with reproducible steps and evidence
+├── api-testing/              # Future scope: Postman collections and API test results
+└── automation-testing/       # Future scope: TestNG/Selenium test scripts
 
-## Technologies Used
+```
 
-* **Language:** Java Development Kit (JDK) 21
-* **Build Tool:** Maven
-* **Testing Framework:** JUnit 5 (Jupiter)
-* **IDE:** IntelliJ IDEA
-* **Version Control:** Git
+## 📊 Current Test Coverage
 
-## Getting Started
+Currently, the test suite covers the following core modules manually:
 
-### Prerequisites
-* Java 21 or higher installed.
-* Maven installed (optional, if running via IDE).
+1. **Fund Transfer Module:**
+* Verified valid and invalid fund transfers.
+* Discovered and documented critical backend validation defects (e.g., negative amounts, zero-value transfers).
 
-### Installation & Execution
-1.  Clone the repository to your local machine.
-2.  Open the project directory in **IntelliJ IDEA**.
-3.  **To run the Calculator:** Navigate to `com.bahaa.calculator.MainApp` and execute the main method.
-4.  **To run Tests:** Right-click on `CalculatorEngineTest` and select "Run".
+
+2. **Authentication (Login & Registration):**
+* Executed positive/negative flows for user onboarding and session handling.
+* Tested session destruction and access control mechanisms.
+* Identified critical security flaws in session management and input validation.
+
+
+
+## 🐛 Defect Tracking
+
+All identified defects are logged in the `bug-reports` directory following standard QA industry formats.
+
+**Notable Backend Vulnerabilities Found:**
+
+* `BUG-AUTH-001`: Insecure session management allowing access to secure pages via the browser 'Back' button post-logout (Broken Access Control).
+* `BUG-TRF-001`: Overdraft vulnerability allowing transfers exceeding the available account balance.
+* `BUG-TRF-004`: Reverse transfer exploit using negative amounts.
+* `BUG-REG-001`: Input validation bypass permitting account creation with special characters in name fields.
 
 ---
-**Author:** Bahaa Essam
+
+**Maintained by:** Bahaa Eldin Essam
