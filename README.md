@@ -29,8 +29,10 @@ Currently, the test suite covers the following core modules:
 * Discovered and documented critical backend validation defects (e.g., negative amounts, zero-value transfers).
 
 
-2. **Authentication (Login/Registration):**
-* *(In Progress)*
+2. **Authentication (Login & Registration):**
+* Executed positive/negative flows for user onboarding and session handling.
+* Tested session destruction and access control mechanisms.
+* Identified critical security flaws in session management and input validation.
 
 
 
@@ -40,8 +42,10 @@ All identified defects are logged in the `bug-reports` directory following stand
 
 **Notable Backend Vulnerabilities Found:**
 
+* `BUG-AUTH-001`: Insecure session management allowing access to secure pages via the browser 'Back' button post-logout (Broken Access Control).
 * `BUG-TRF-001`: Overdraft vulnerability allowing transfers exceeding the available account balance.
 * `BUG-TRF-004`: Reverse transfer exploit using negative amounts.
+* `BUG-REG-001`: Input validation bypass permitting account creation with special characters in name fields.
 
 ---
 
