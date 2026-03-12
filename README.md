@@ -1,62 +1,57 @@
-# ParaBank Quality Engineering Suite
+# ParaBank QA Engineering Portfolio
 
-> 🚧 **Project Status: Active Development (Work in Progress)**
+> 🚧 **Status: Work in Progress**
 
-A comprehensive software testing repository focused on building a scalable Quality Assurance framework for the ParaBank demo application. This project serves as a portfolio piece demonstrating end-to-end QA processes, starting from manual test design and defect tracking, and extending into API and automated UI testing.
+QA testing portfolio for the ParaBank demo app. Currently focused on manual test design and bug reporting, with API and UI automation phases coming next.
 
-## 🗺️ Project Roadmap & Phases
+🔗 **[View Manual Test Scenarios & Execution (Google Sheets)](https://docs.google.com/spreadsheets/d/1aTSa80rnWiVAjZPAfjTSVRvDyRbEeXXUoFMU4Us4ryU/edit?usp=sharing)**
 
-- [x] **Phase 1.1: Core Manual Testing** (Fund Transfer & Authentication modules completed. Detailed test cases and bug reports documented).
-- [ ] **Phase 1.2: Extended Manual Testing** (Bill Pay, Loan Requests, and User Profile updates - *In Progress*).
-- [ ] **Phase 2: API Testing** (Validating backend endpoints using Postman / REST Assured - *Planned*).
-- [ ] **Phase 3: UI Test Automation** (Building a robust automation framework using Java, Selenium WebDriver, TestNG, and Maven - *Planned*).
+## 🗺️ Roadmap
+
+- [x] **Phase 1: Manual Testing** (Fund Transfer & Auth modules completed. Bugs logged).
+- [ ] **Phase 2: API Testing** (Postman).
+- [ ] **Phase 3: UI Automation** (Java, Selenium WebDriver, TestNG).
 
 ## 🛠️ Tech Stack & Tools
 
-- **Methodologies:** Manual Testing (Black-Box), Boundary Value Analysis (BVA), Error Guessing.
-- **Documentation:** Markdown (Bug Reports), Google Sheets (Test Cases & Execution).
-- **Automation (Upcoming):** Java 21, Selenium WebDriver, TestNG.
-- **API Testing (Upcoming):** Postman.
-- **Version Control:** Git & GitHub.
+- **Testing Types:** Black-Box, Boundary Value Analysis, Error Guessing.
+- **Documentation:** Google Sheets, Markdown.
+- **Automation (Planned):** Java 21, Selenium, TestNG, Maven.
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```text
-ParaBank-Quality-Engineering-Suite/
+ParaBank-QA-Portfolio/
 ├── manual-testing/
-│   ├── test-scenarios/       # Test cases mapped to specific modules
-│   └── bug-reports/          # Detailed defect reports with reproducible steps and evidence
-├── api-testing/              # Future scope: Postman collections and API test results
-└── automation-testing/       # Future scope: TestNG/Selenium test scripts
+│   ├── test-scenarios/       # Link to main Google Sheet
+│   └── bug-reports/          # Markdown files for each defect
+├── api-testing/              # Planned
+└── automation-testing/       # Planned
 
 ```
 
-## 📊 Current Test Coverage
+## 📊 Test Coverage (Manual)
 
-Currently, the test suite covers the following core modules manually:
+Tested core features with a focus on logic validation and edge cases:
 
-1. **Fund Transfer Module:**
-* Verified valid and invalid fund transfers.
-* Discovered and documented critical backend validation defects (e.g., negative amounts, zero-value transfers).
+**1. Fund Transfer Module:**
 
+* Checked positive flows and boundaries.
+* Found backend logic flaws (e.g., negative transfers, bypassing balance checks).
 
-2. **Authentication (Login & Registration):**
-* Executed positive/negative flows for user onboarding and session handling.
-* Tested session destruction and access control mechanisms.
-* Identified critical security flaws in session management and input validation.
+**2. Authentication (Login & Registration):**
 
+* Tested onboarding, login, and secure logout.
+* Logged session management issues.
 
+## 🐛 Defect Highlights
 
-## 🐛 Defect Tracking
+See the `bug-reports` folder for reproducible steps. Notable finds include:
 
-All identified defects are logged in the `bug-reports` directory following standard QA industry formats.
-
-**Notable Backend Vulnerabilities Found:**
-
-* `BUG-AUTH-001`: Insecure session management allowing access to secure pages via the browser 'Back' button post-logout (Broken Access Control).
-* `BUG-TRF-001`: Overdraft vulnerability allowing transfers exceeding the available account balance.
-* `BUG-TRF-004`: Reverse transfer exploit using negative amounts.
-* `BUG-REG-001`: Input validation bypass permitting account creation with special characters in name fields.
+* **`BUG-AUTH-001`**: Broken Access Control - Secure dashboard remains accessible via browser 'Back' button after logout.
+* **`BUG-TRF-001`**: Overdraft Exploit - System processes transfers exceeding the available account balance.
+* **`BUG-TRF-004`**: Logic Flaw - Transfer field accepts negative amounts, effectively reversing the transaction.
+* **`BUG-REG-001`**: Validation Bypass - First/Last Name fields accept special characters and numbers during account creation.
 
 ---
 
