@@ -21,12 +21,13 @@ QA testing portfolio for the ParaBank demo app. Currently focused on manual test
 ## 📁 Repository Structure
 
 ```text
-ParaBank-QA-Portfolio/
-├── manual-testing/
-│   ├── test-scenarios/       # Link to main Google Sheet
-│   └── bug-reports/          # Markdown files for each defect
-├── api-testing/              # Planned
-└── automation-testing/       # Planned
+ParaBank-Quality-Engineering-Suite/
+├── api-documentation/        # Planned: API test collections
+├── automation-testing/       # Planned: Java/Selenium UI scripts
+└── manual-testing/
+    ├── bug-reports/          # Markdown files & screenshots for defects
+    ├── test-scenarios/       # Markdown files mapping module scenarios
+    └── ParaBank_Test_Scenarios_v1.0.xlsx # Master execution sheet
 
 ```
 
