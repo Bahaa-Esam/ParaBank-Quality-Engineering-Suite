@@ -2,7 +2,7 @@
 
 A comprehensive QA portfolio demonstrating a full Software Testing Life Cycle (STLC) approach on the ParaBank demo application. This project combines structured manual test design with a scalable UI automation framework.
 
-🔗 **[View Manual Test Scenarios & Bug Reports (Google Sheets)](Insert_Link_Here)**
+🔗 **[View Manual Test Scenarios & Bug Reports (Google Sheets)](https://docs.google.com/spreadsheets/d/1aTSa80rnWiVAjZPAfjTSVRvDyRbEeXXUoFMU4Us4ryU/edit?usp=sharing)**
 
 ## 🛠️ Tech Stack & Architecture
 * **Core:** Java 21, Maven
