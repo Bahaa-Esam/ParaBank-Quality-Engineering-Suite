@@ -29,4 +29,4 @@ Translated the core manual test cases into robust, maintainable automated script
 * `/automation-testing/` - The Java/Selenium Maven project containing the POM architecture and test suites.
 
 ---
-*Developed by [Your Name] - Software Quality Engineer*
+*Developed by Bahaa Eldin Essam - Software Quality Engineer*
