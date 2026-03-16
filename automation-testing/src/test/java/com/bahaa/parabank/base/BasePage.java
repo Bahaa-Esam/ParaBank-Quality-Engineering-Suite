@@ -39,12 +39,12 @@ public class BasePage {
     }
 
     /** Get text safely (Trims spaces & handles errors) */
-    public String  getTextFromElement(By locator){
+    public String getTextFromElement(By locator){
         try{
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             return driver.findElement(locator).getText().trim();
         }catch (Exception e){
-            System.out.println("Error getting text from element: "+e.getMessage());
+            System.out.println("Error getting text from element: " + e.getMessage());
             return "";
         }
     }
@@ -58,7 +58,7 @@ public class BasePage {
     }
 
     /** Check visibility using Default Wait */
-    public boolean isElemenVisible  (By locator){
+    public boolean isElementVisible(By locator){
         try{
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             return driver.findElement(locator).isDisplayed();
@@ -71,7 +71,7 @@ public class BasePage {
     public boolean isElementVisible(By locator, long timeout){
         try{
             new WebDriverWait(driver, Duration.ofSeconds(timeout))
-                    .until(ExpectedConditions.elementToBeClickable(locator));
+                    .until(ExpectedConditions.visibilityOfElementLocated(locator)); // تم التصحيح هنا لـ visibility
             return true;
         }catch (Exception e){
             return false;
@@ -79,15 +79,15 @@ public class BasePage {
     }
 
     /** Check invisibility using Default Wait */
-    public boolean isElementInVisible(By locator){
-        return isElementVisible(locator, WAIT_TIME);
+    public boolean isElementInvisible(By locator){
+        return isElementInvisible(locator, WAIT_TIME);
     }
 
     /** Check invisibility using Custom Timeout */
-    public boolean isElementInVisible (By locator, long timeout){
+    public boolean isElementInvisible(By locator, long timeout){
         try{
             new WebDriverWait(driver, Duration.ofSeconds(timeout))
-                    .until(ExpectedConditions.elementToBeClickable(locator));
+                    .until(ExpectedConditions.invisibilityOfElementLocated(locator));
             return true;
         }catch (Exception e){
             return false;
@@ -110,4 +110,15 @@ public class BasePage {
         dropdown.selectByVisibleText(text);
     }
 
+    /**
+     * Gets the text of the currently selected option in a dropdown.
+     *
+     * @param locator The locator of the <select> element.
+     * @return The text of the first selected option.
+     */
+    public String getFirstSelectedOptionFromDropdown(By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        Select dropdown = new Select(driver.findElement(locator));
+        return dropdown.getFirstSelectedOption().getText();
+    }
 }

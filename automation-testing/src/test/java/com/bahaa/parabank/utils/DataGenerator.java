@@ -11,7 +11,6 @@ public class DataGenerator {
 
     public static Map<String, String> generateCustomerPayload() {
         Map<String, String> payload = new HashMap<>();
-        // بنشيل أي حاجة مش حروف أو أرقام عشان السيرفر ميهنجش
         payload.put("customer.firstName", FAKER.name().firstName().replaceAll("[^a-zA-Z]", ""));
         payload.put("customer.lastName", FAKER.name().lastName().replaceAll("[^a-zA-Z]", ""));
         payload.put("customer.address.street", "Street 123");

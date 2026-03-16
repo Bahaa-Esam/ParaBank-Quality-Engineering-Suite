@@ -3,11 +3,6 @@ package com.bahaa.parabank.pages;
 import com.bahaa.parabank.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class TransferFundPage extends BasePage {
 
@@ -27,14 +22,12 @@ public class TransferFundPage extends BasePage {
         selectFromDropdown(toAccountDropdown, toAccountId);
         clickOnElement(transferBtn);
     }
+
     public String getFirstAvailableAccount() {
-        Select dropdown = new Select(driver.findElement(fromAccountDropdown));
-        return dropdown.getFirstSelectedOption().getText();
+        return getFirstSelectedOptionFromDropdown(fromAccountDropdown);
     }
 
     public boolean isSuccessMessageDisplayed() {
-        return new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(transferCompleteMessage))
-                .isDisplayed();
+        return isElementVisible(transferCompleteMessage);
     }
 }

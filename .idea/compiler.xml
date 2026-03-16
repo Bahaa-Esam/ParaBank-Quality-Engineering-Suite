@@ -9,5 +9,6 @@
         <module name="parabank-automation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="21" />
   </component>
 </project>

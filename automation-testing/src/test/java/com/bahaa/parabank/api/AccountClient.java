@@ -11,15 +11,15 @@ public class AccountClient {
     private static final String SESSION_COOKIE = "JSESSIONID";
 
     public static Response registerCustomer(String baseUri, Map<String, String> payload) {
-        String sessionId = given()
+        io.restassured.filter.session.SessionFilter sessionFilter = new io.restassured.filter.session.SessionFilter();
+        given()
                 .baseUri(baseUri)
-                .when()
-                .get(REGISTER_PATH)
-                .cookie(SESSION_COOKIE);
+                .filter(sessionFilter)
+                .get(REGISTER_PATH);
 
         return given()
                 .baseUri(baseUri)
-                .cookie(SESSION_COOKIE, sessionId)
+                .filter(sessionFilter)
                 .contentType("application/x-www-form-urlencoded")
                 .formParams(payload)
                 .when()
