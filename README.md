@@ -24,6 +24,13 @@ Translated the core manual test cases into robust, maintainable automated script
 * Utilized **TestNG** annotations for efficient test lifecycle management (`@BeforeMethod`, `@Test`, etc.).
 * Integrated **Allure** to generate interactive dashboards showing pass/fail ratios and execution metrics.
 
+## 🚀 Roadmap & Upcoming Phases
+This framework is continuously evolving to cover all layers of the Testing Pyramid:
+* **API Testing:** Automating backend endpoints (e.g., Accounts, Transactions) using **RestAssured** to validate business logic independently of the UI.
+* **Database Testing:** Integrating **JDBC** to verify data integrity and ensure database states match application actions.
+* **Performance Testing:** Simulating concurrent user loads and stressing transaction endpoints using **JMeter**.
+* **CI/CD Integration:** Setting up **GitHub Actions** to automatically trigger test suites on every push/pull request.
+
 ## 📁 Repository Structure
 * `/manual-testing/` - Contains bug reports, scenarios, and execution matrices.
 * `/automation-testing/` - The Java/Selenium Maven project containing the POM architecture and test suites.
