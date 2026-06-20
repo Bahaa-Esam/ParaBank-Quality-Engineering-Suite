@@ -32,7 +32,15 @@ public class BaseTest {
     }
 
     private void initializeDriver() {
-        String browser = prop.getProperty("browser", "chrome");
+        String envBrowser = System.getenv("BROWSER");
+        String browser;
+
+        if (envBrowser != null && !envBrowser.trim().isEmpty()) {
+            browser = envBrowser;
+        } else {
+            browser = prop.getProperty("browser", "chrome");
+        }
+
         driver = BrowserFactory.getBrowser(browser);
     }
 

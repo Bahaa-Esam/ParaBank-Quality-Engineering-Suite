@@ -21,9 +21,12 @@ public class BrowserFactory {
                 driver = new EdgeDriver();
                 break;
             case "chrome-headless":
-                ChromeOptions Options = new ChromeOptions();
-                Options.addArguments("--headless");
-                driver = new ChromeDriver(Options);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless=new");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--window-size=1920,1080");
+                driver = new ChromeDriver(options);
                 break;
             default:
                 throw new IllegalArgumentException("Browser not supported: " + browserName);
