@@ -1,39 +1,56 @@
 # ParaBank E2E Quality Engineering Suite
 
-A comprehensive QA portfolio demonstrating a full Software Testing Life Cycle (STLC) approach on the ParaBank demo application. This project combines structured manual test design with a scalable UI automation framework.
+A comprehensive Software Testing Life Cycle (STLC) portfolio demonstrating End-to-End testing on the ParaBank demo application. This project integrates Manual Testing, UI Automation, and API Testing into a unified CI/CD pipeline.
 
 🔗 **[View Manual Test Scenarios & Bug Reports (Google Sheets)](https://docs.google.com/spreadsheets/d/1aTSa80rnWiVAjZPAfjTSVRvDyRbEeXXUoFMU4Us4ryU/edit?usp=sharing)**
 
 ## 🛠️ Tech Stack & Architecture
-* **Core:** Java 21, Maven
-* **UI Automation:** Selenium WebDriver, TestNG
-* **Design Pattern:** Page Object Model (POM) for maintainability and code reusability.
-* **Reporting:** Allure Reports for detailed execution insights and failure tracing.
 
-## 🎯 Project Highlights
+| Category | Tools & Technologies |
+| :--- | :--- |
+| **Core** | Java 21, Maven |
+| **UI Automation** | Selenium WebDriver, TestNG |
+| **API Testing** | Postman (Collections, Environments, Dynamic Data) |
+| **CI/CD** | GitHub Actions |
+| **Design Pattern** | Page Object Model (POM) |
+| **Reporting** | Allure Reports |
 
-### 1. Manual Testing Phase (Business Logic Focus)
-Before automating, I analyzed the core business flows to uncover critical backend logic flaws that automated happy-paths might miss. Notable findings include:
-* **`BUG-TRF-001`:** Overdraft Exploit - Bypassing account balance checks during fund transfers.
-* **`BUG-TRF-004`:** Logic Flaw - The system accepts negative transfer amounts.
-* **`BUG-AUTH-001`:** Broken Access Control - Secure pages remain accessible via the browser's 'Back' button post-logout.
+## 🚀 Key Highlights & Achievements
 
-### 2. UI Automation Phase
-Translated the core manual test cases into robust, maintainable automated scripts:
-* Built a modular structure separating test logic from page actions (POM).
-* Utilized **TestNG** annotations for efficient test lifecycle management (`@BeforeMethod`, `@Test`, etc.).
-* Integrated **Allure** to generate interactive dashboards showing pass/fail ratios and execution metrics.
+### 1. Robust UI Automation Framework
+* Built a modular structure strictly adhering to the **Page Object Model (POM)**, separating test logic from page actions for maximum maintainability.
+* Utilized **TestNG** annotations for efficient test lifecycle management.
+* Integrated **Allure Reports** to generate interactive dashboards detailing execution metrics and failure tracing.
 
-## 🚀 Roadmap & Upcoming Phases
-This framework is continuously evolving to cover all layers of the Testing Pyramid:
-* **API Testing:** Automating backend endpoints (e.g., Accounts, Transactions) using **RestAssured** to validate business logic independently of the UI.
-* **Database Testing:** Integrating **JDBC** to verify data integrity and ensure database states match application actions.
-* **Performance Testing:** Simulating concurrent user loads and stressing transaction endpoints using **JMeter**.
-* **CI/CD Integration:** Setting up **GitHub Actions** to automatically trigger test suites on every push/pull request.
+### 2. API Session Management & Automation
+* Automated `JSESSIONID` extraction and dynamic data generation (`{{$randomUserName}}`) in Postman to effectively test stateful registration and login flows.
+* Configured environmental variables for seamless execution across different server environments.
 
-## 📁 Repository Structure
-* `/manual-testing/` - Contains bug reports, scenarios, and execution matrices.
+### 3. Continuous Integration (CI/CD)
+* Configured **GitHub Actions** to automatically trigger Maven builds and execute headless test suites on every repository push, ensuring continuous code quality.
+
+### 4. Critical Bug Discovery (Manual Phase)
+Applied formal **ISTQB Test Design Techniques** to analyze core business flows prior to automation. This structured approach uncovered critical backend logic flaws that automated happy-paths typically miss:
+
+* **Boundary Value Analysis (BVA):** Evaluated transaction limits and account boundaries, leading to the discovery of **`BUG-TRF-001`** (Overdraft Exploit), where the system failed to block transfers exceeding the maximum available balance.
+* **Equivalence Partitioning (EP):** Tested invalid input classes, uncovering **`BUG-TRF-004`** (Logic Flaw), where the backend incorrectly accepted negative transfer amounts (Invalid Partition).
+* **State Transition Testing:** Analyzed application behavior during session changes, identifying **`BUG-AUTH-001`** (Broken Access Control), where secure pages remained accessible via the browser's 'Back' button post-logout.
+## ⚙️ How to Run Locally
+
+### UI Automation
+1. Clone the repository and navigate to `/automation-testing/`
+2. Run the test suite: `mvn clean test`
+3. Generate and serve the execution report: `allure serve allure-results`
+
+### API Testing
+1. Import the Collection and Environment `.json` files from `/api-documentation/` into Postman.
+2. Select the `ParaBank_Env` environment.
+3. Run the collection using the Postman Runner.
+
+## 📂 Repository Structure
 * `/automation-testing/` - The Java/Selenium Maven project containing the POM architecture and test suites.
+* `/api-documentation/` - Postman collections and environments for backend validation.
+* `/manual-testing/` - Core manual test scenarios, execution matrices, and detailed bug reports.
 
 ---
-*Developed by Bahaa Eldin Essam - Software Quality Engineer*
+*Developed by Bahaa Eldin Essam* *Software Quality Engineer | ISTQB Foundation Level Certified*
