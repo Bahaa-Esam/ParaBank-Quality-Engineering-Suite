@@ -53,4 +53,5 @@ Applied formal **ISTQB Test Design Techniques** to analyze core business flows p
 * `/manual-testing/` - Core manual test scenarios, execution matrices, and detailed bug reports.
 
 ---
-*Developed by Bahaa Eldin Essam* *Software Quality Engineer | ISTQB Foundation Level Certified*
+*Developed by [Bahaa-Eldin Essam](https://linkedin.com/in/bahaa-swdalx)*
+*Software Quality Engineer | [ISTQB® Foundation Level Certified]((https://scr.istqb.org/?name=Bahaa+Eldin+Essam&number=251117088&orderBy=relevancy&orderDirection=&dateStart=&dateEnd=&expiryStart=&expiryEnd=&certificationBody=&examProvider=&certificationLevel=&country=)) | DEPI [Software Testing Diploma](https://drive.google.com/file/d/1LAHyfrBXC_lN_OyvLWjzr-VFGUv7ZXQ4/view?usp=sharing)*
