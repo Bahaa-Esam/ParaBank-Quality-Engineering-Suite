@@ -1,0 +1,8 @@
+# IDE files
+.idea/
+
+# Build and Report folders
+target/
+allure-results/
+allure-report/
+*.log

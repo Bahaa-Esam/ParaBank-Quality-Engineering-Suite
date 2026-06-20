@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "2436a0b3-a44e-42b7-9d36-85d11d33a36c",
+		"name": "ParaBank - Registration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41717628",
+		"_collection_link": "https://depi44-1795.postman.co/workspace/project~8471cd7b-303d-4dc0-b7fc-0927604ee236/collection/41717628-2436a0b3-a44e-42b7-9d36-85d11d33a36c?action=share&source=collection_link&creator=41717628"
+	},
+	"item": [
+		{
+			"name": "Init Registration Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Session Cookie is present\", function () {",
+							"    pm.expect(pm.cookies.has(\"JSESSIONID\")).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/parabank/register.htm",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC_REG_06_Boundary_Exceed_FirstName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString = pm.variables.replaceIn('{{$randomUserName}}');",
+							"var uniqueUsername = \"Bahaa_\" + randomString + \"_\" + Date.now();",
+							"pm.environment.set(\"saved_username\", uniqueUsername);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer.firstName",
+							"value": "tttttttteeeeeeeessssssssttttttttiii",
+							"type": "text"
+						},
+						{
+							"key": "customer.lastName",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.street",
+							"value": "15 Street",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.city",
+							"value": "alex",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.state",
+							"value": "alex",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.zipCode",
+							"value": "3231",
+							"type": "text"
+						},
+						{
+							"key": "customer.phoneNumber",
+							"value": "4935423454",
+							"type": "text"
+						},
+						{
+							"key": "customer.ssn",
+							"value": "686786k",
+							"type": "text"
+						},
+						{
+							"key": "customer.username",
+							"value": "{{saved_username}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.password",
+							"value": "1234Test",
+							"type": "text"
+						},
+						{
+							"key": "repeatedPassword",
+							"value": "1234Test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/parabank/register.htm",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://parabank.parasoft.com/parabank/register.htm' \\\n  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8' \\\n  -H 'accept-language: en-US,en;q=0.6' \\\n  -H 'cache-control: max-age=0' \\\n  -H 'content-type: application/x-www-form-urlencoded' \\\n  -b 'JSESSIONID=75CA24E52BF8ECA7B99FDC97B5CF2B66' \\\n  -H 'dnt: 1' \\\n  -H 'origin: https://parabank.parasoft.com' \\\n  -H 'priority: u=0, i' \\\n  -H 'referer: https://parabank.parasoft.com/parabank/register.htm' \\\n  -H 'sec-ch-ua: \"Brave\";v=\"149\", \"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"' \\\n  -H 'sec-ch-ua-arch: \"x86\"' \\\n  -H 'sec-ch-ua-bitness: \"64\"' \\\n  -H 'sec-ch-ua-full-version-list: \"Brave\";v=\"149.0.0.0\", \"Chromium\";v=\"149.0.0.0\", \"Not)A;Brand\";v=\"24.0.0.0\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-model: \"\"' \\\n  -H 'sec-ch-ua-platform: \"Linux\"' \\\n  -H 'sec-ch-ua-platform-version: \"\"' \\\n  -H 'sec-fetch-dest: document' \\\n  -H 'sec-fetch-mode: navigate' \\\n  -H 'sec-fetch-site: same-origin' \\\n  -H 'sec-fetch-user: ?1' \\\n  -H 'sec-gpc: 1' \\\n  -H 'upgrade-insecure-requests: 1' \\\n  -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36' \\\n  --data-raw 'customer.firstName=test&customer.lastName=Test&customer.address.street=15+Street&customer.address.city=alex&customer.address.state=alex&customer.address.zipCode=3231&customer.phoneNumber=4935423454&customer.ssn=686786k&customer.username=BTest&customer.password=1234Test&repeatedPassword=1234Test'"
+			},
+			"response": []
+		}
+	]
+}
